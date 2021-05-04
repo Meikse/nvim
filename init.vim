@@ -46,9 +46,8 @@ endif
 
 tnoremap <Esc> <C-\><C-n>
 
-" ------------------------------------------------------------ "
+" -------------------------test-function-------------------------- "
 fun! s:jup_ter()
-"   echo 'hello sir'
   :vnew <CR>
 endfun
 command REPL call s:jup_ter()
