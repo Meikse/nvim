@@ -1,6 +1,5 @@
 call plug#begin('~/.config/nvim/plugins') "install git beforehand
 
-" Plug vim-surround
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'jiangmiao/auto-pairs' 
 Plug 'jupyter-vim/jupyter-vim'
@@ -13,6 +12,8 @@ Plug 'lervag/vimtex'
 Plug 'stevearc/vim-arduino'
 
 call plug#end()
+
+source ./editing.vim
 
 let g:python3_host_prog = "/usr/bin/python3"
 let g:python_host_prog = "/usr/bin/python2"
@@ -78,14 +79,6 @@ noremap <leader><cr> :pwd<cr>
 noremap <leader>f :vert res<cr>
 noremap <leader>r <c-w>=
 
-
-function KickOut()
-" kick out file but let buffer open 
-":b#|bd#
-	let g:current = bufnr('%')
-	exec "bn"
-	exec "bd". g:current
-endfunction
 noremap <s-q> :exec KickOut()<cr>
 noremap <c-q> :bd<cr>
 noremap <m-q> <c-w>c
