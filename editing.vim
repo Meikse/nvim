@@ -1,3 +1,4 @@
+" usefull functions
 " use call instead of exec when invoking vim functions
 " add number in first box of the row
 function AddNumber()
