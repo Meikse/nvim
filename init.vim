@@ -13,7 +13,7 @@ Plug 'stevearc/vim-arduino'
 
 call plug#end()
 
-source ./editing.vim
+source <sfile>:h/editing.vim
 
 let g:python3_host_prog = "/usr/bin/python3"
 let g:python_host_prog = "/usr/bin/python2"
@@ -28,16 +28,21 @@ autocmd FileType python map <buffer> <F3> :w<CR>:JupyterRunFile <CR>:AsyncRun py
 colorscheme gruvbox "darkblue
 set background=dark
 
+syntax enable 
+filetype plugin indent on
 set clipboard+=unnamedplus
 let mapleader = ','
 set autochdir
 set number relativenumber
 set autoindent
 set smartindent
+set cindent       " stricter rules for C programs
 set mouse=a
-syntax enable 
-filetype plugin indent on
 " set omnifunc=syntaxcomplete#Complete "build in completion for easy setup
+set tabstop=4     " tabs are at better location (maybe change in python)
+set expandtab     " don't use actual tab character (ctrl-v)
+set shiftwidth=4  " indenting is 4 spaces
+
 
 let g:SuperTabMappingForward = '<s-tab>'
 let g:SuperTabMappingBackward = '<tab>'
@@ -47,7 +52,10 @@ tnoremap <Esc> <c-\><c-n>
 
 noremap <F8> :bro ol<cr>
 noremap <F9> :e $MYVIMRC<cr>
-noremap <F10> :e .<cr>
+" noremap <bs> :exec KickOut()<cr>:e .<cr>
+
+au FileType netrw nmap <buffer> h -
+au FileType netrw nmap <buffer> l <cr>
 
 noremap <c-b> :bp <cr>
 noremap <c-n> :bn <cr>
@@ -56,6 +64,8 @@ noremap <c-p> :noh<cr>
 noremap <leader><leader> :ls <cr>
 
 inoremap <M-,> <c-o>a
+noremap <silent> x "_x
+xnoremap <silent> x "_x
 
 noremap <up> <NOP>
 noremap <down> <NOP>
@@ -76,7 +86,7 @@ noremap <leader>n :noh<cr>
 noremap <leader><cr> :pwd<cr>
 
 " full size and decrease again buffer single key shortcut
-noremap <leader>f :vert res<cr>
+noremap <leader>f :vert res<cr> 
 noremap <leader>r <c-w>=
 
 noremap <s-q> :exec KickOut()<cr>
@@ -102,3 +112,4 @@ let g:arduino_programmer =''
 " serial console 
 " $ stty -F %PORT raw %BAUDRATE
 " cat %PORT
+
