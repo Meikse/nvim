@@ -1,3 +1,4 @@
+" use call instead of exec when invoking vim functions
 " add number in first box of the row
 function AddNumber()
      let num = line('$')
@@ -49,7 +50,7 @@ function KickOut()
 endfunction
 
 " loop trough available colorschemes
-function! DisplayColorSchemes()
+function DisplayColorSchemes()
    let currDir = getcwd()
    exec "cd $VIMRUNTIME/colors"
    for myCol in split(glob("*"), '\n')
@@ -63,3 +64,13 @@ function! DisplayColorSchemes()
    endfor
    exec "cd " . currDir
 endfunction
+
+"print timestamp for logging
+function PrintTime(suffix)
+   let time = strftime('%d.%m.%Y %T')
+   call setline(line('.'), a:suffix. " " . time) 
+endfunction
+
+"
+" function ResizeWindow()
+" endfunction
