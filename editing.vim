@@ -16,9 +16,10 @@ endfunction
 
 "with :10,15call Number() 
 "from line10 till 15 the number are written
-function Number()
+" add offset TODO
+function Number(offset)
      let i = line('.')
-     call setline(i, i . '. ' . getline(i))
+     call setline(i, i + a:offset . '. ' . getline(i))
 endfunction
 
 " split sentence from one row to seperate rows
@@ -72,6 +73,5 @@ function PrintTime(suffix)
    call setline(line('.'), a:suffix. " " . time) 
 endfunction
 
-"
 " function ResizeWindow()
 " endfunction
