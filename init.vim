@@ -2,22 +2,32 @@ call plug#begin('~/.config/nvim/plugins') "install git beforehand
 
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'jiangmiao/auto-pairs' 
-Plug 'jupyter-vim/jupyter-vim'
-Plug 'skywind3000/asyncrun.vim'
 Plug 'ervandew/supertab'
-Plug 'vim-airline/vim-airline' "lualine might be better but icons dont work
+Plug 'vim-airline/vim-airline' 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-Plug 'neoclide/coc.nvim', {'branch':'release'} " :CocInstall coc-python
 Plug 'lervag/vimtex'
+Plug 'jupyter-vim/jupyter-vim'
 Plug 'stevearc/vim-arduino'
-Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh' }
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
-" x Post-update hook for fzf ... Failed to download fzf: /home/meik/.config/nvim/plugins/fzf/install --bin
+Plug 'skywind3000/asyncrun.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'tpope/vim-commentary'
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+
+" Plug 'puremourning/vimspector'
+" configure debugging mode in some way
 
 call plug#end()
 
 source <sfile>:h/editing.vim
+source <sfile>:h/lsp_config.lua
 
 let g:python3_host_prog = "/usr/bin/python3"
 let g:python_host_prog = "/usr/bin/python2"
@@ -37,6 +47,7 @@ filetype plugin indent on
 set clipboard+=unnamedplus
 let mapleader = ','
 set autochdir
+set encoding=UTF-8
 set number relativenumber
 set autoindent
 set smartindent
@@ -63,9 +74,10 @@ au FileType netrw nmap <buffer> l <cr>
 
 autocmd FileType help wincmd H
 
-noremap <c-b> :bp <cr>
+noremap <c-p> :bp <cr>
 noremap <c-n> :bn <cr>
-noremap <c-p> :noh<cr>
+noremap <leader>n :noh<cr>
+noremap <leader><cr> :pwd<cr>
 
 noremap <leader><leader> :ls <cr>
 
@@ -73,15 +85,11 @@ inoremap <M-,> <c-o>a
 noremap <silent> x "_x
 xnoremap <silent> x "_x
 
-inoremap <up> <NOP>
-inoremap <down> <NOP>
-inoremap <left> <NOP>
-inoremap <right> <NOP>
-
-" noremap <up> <NOP>
-" noremap <down> <NOP>
-" noremap <left> <NOP>
-" noremap <right> <NOP>
+" go full hardcore mode!
+map <up> <NOP>
+map <down> <NOP>
+map <left> <NOP>
+map <right> <NOP>
 
 noremap <c-l> <c-w>l
 noremap <c-h> <c-w>h
@@ -93,13 +101,13 @@ noremap <m-h> <c-w>>
 noremap <m-j> <c-w>+
 noremap <m-k> <c-w>-
 
-noremap <leader>n :noh<cr>
-noremap <leader><cr> :pwd<cr>
 
 " full size and decrease again buffer single key shortcut
 " noremap <leader>h :vert res<cr> 
 noremap <leader>f :vert res<cr> :res<cr> 
 noremap <leader>r <c-w>=
+" noremap <leader>f <c-w>o
+" noremap <leader>r <c-w>v
 
 noremap <s-q> :exec KickOut()<cr>
 noremap <c-q> :bd<cr>
@@ -107,18 +115,9 @@ noremap <m-q> <c-w>c
 
 noremap <Tab> :b<space>
 
-augroup commenting_blocks_of_code
-  autocmd!
-  autocmd FileType c,cpp,java       let b:comment_leader = '// '
-  autocmd FileType arduino          let b:comment_leader = '// '
-  autocmd FileType sh,ruby,python   let b:comment_leader = '# '
-  autocmd FileType conf,fstab       let b:comment_leader = '# '
-  autocmd FileType tex              let b:comment_leader = '% '
-  autocmd FileType mail             let b:comment_leader = '> '
-  autocmd FileType vim              let b:comment_leader = '" '
-augroup END
-noremap <silent> <leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
-noremap <silent> <leader>cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+" vim-commentary
+noremap <silent> <leader>cc :Commentary<cr>
+noremap <silent> <leader>cu :Commentary<cr>
 
 " vimtex
 let g:vimtex_quickfix_open_on_warning = 0
@@ -129,13 +128,31 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " fzf
-let g:fzf_layout = {'window': {'width': 0.9, 'height': 0.85} }
-let $FZF_DEFAULT_OPTS="inline-info --height 50% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
-let g:fzf_buffers_jump = 1
-nnoremap <silent> <leader>h :Files ~<cr>
-nnoremap <silent> <leader>d :Files /<cr>
+" let g:fzf_layout = {'window': {'width': 0.9, 'height': 0.85} }
+" let $FZF_DEFAULT_OPTS="inline-info --height 50% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
+" let g:fzf_buffers_jump = 1
+" nnoremap <silent> <leader>h :Files ~<cr>
+" nnoremap <silent> <leader>d :Files /<cr>
 
 " arduino
 autocmd Filetype arduino noremap <leader>v :w<cr> :ArduinoVerify<CR>
 autocmd Filetype arduino noremap <leader>u :w<cr> :ArduinoUpload<CR>
 let g:arduino_programmer ='' 
+
+" telescope
+noremap <leader>l :Telescope find_files hidden=false search_dirs=/home/meikse/<cr>
+
+lua << END
+require('telescope').setup{
+defaults = {
+    preview = {
+        treesitter = false,
+        }
+    },
+  pickers = {
+    find_files = {
+      theme = "dropdown",
+    }
+  },
+}
+END

@@ -1,5 +1,22 @@
+
 " usefull functions
 " use call instead of exec when invoking vim functions
+"
+"
+" augroup commenting_blocks_of_code
+"   autocmd!
+"   autocmd FileType c,cpp,java       let b:comment_leader = '// '
+"   autocmd FileType arduino          let b:comment_leader = '// '
+"   autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+"   autocmd FileType conf,fstab,      let b:comment_leader = '# '
+"   autocmd FileType tex              let b:comment_leader = '% '
+"   autocmd FileType mail             let b:comment_leader = '> '
+"   autocmd FileType vim              let b:comment_leader = '" '
+" augroup END
+" noremap <silent> <leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+" noremap <silent> <leader>cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+"
+"
 " add number in first box of the row
 function AddNumber()
      let num = line('$')
@@ -61,17 +78,33 @@ function DisplayColorSchemes()
          exec "colorscheme " . mycol
          exec "redraw!"
          echo "colorscheme = ". myCol
-         sleep 1
+         sleep 2
       endif
    endfor
    exec "cd " . currDir
 endfunction
 
 "print timestamp for logging
-function PrintTime(suffix)
+function PrintTime(suffix, preffix)
    let time = strftime('%d.%m.%Y %T')
-   call setline(line('.'), a:suffix. " " . time) 
+   call append(line('.'), a:suffix. " " . time . " " .a:preffix) 
 endfunction
+
+"print timestamp for journals
+function TimestampJournal(suffix = "", preffix = "")
+    let l:lastline = getline(line("$"))
+    if empty(l:lastline) == 0
+        call append(line("$"),"")
+    endif
+    call cursor(line("$"),1)
+    call PrintTime(a:suffix,a:preffix)
+    call append(line("$"),"")
+    call cursor(line("$"),0)
+    call append(line("$"),"")
+    call cursor(line("$"),0)
+    exec "startinsert"
+endfunction
+
 
 " function ResizeWindow()
 " endfunction
