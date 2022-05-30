@@ -1,3 +1,3 @@
 # nvim configuration
 
-version: 0.7.0-dev
+version: 0.8.0-dev
