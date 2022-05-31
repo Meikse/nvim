@@ -4,6 +4,7 @@ Plug 'rafi/awesome-vim-colorschemes'
 Plug 'jiangmiao/auto-pairs' 
 Plug 'ervandew/supertab'
 Plug 'vim-airline/vim-airline' 
+Plug 'tpope/vim-fugitive'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'lervag/vimtex'
 Plug 'jupyter-vim/jupyter-vim'
@@ -126,6 +127,7 @@ let g:vimtex_quickfix_open_on_warning = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_powerline_fonts = 0
 
 " fzf
 " let g:fzf_layout = {'window': {'width': 0.9, 'height': 0.85} }
