@@ -28,7 +28,7 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 call plug#end()
 
 source <sfile>:h/editing.vim
-" source <sfile>:h/lsp_config.lua
+source <sfile>:h/lsp_config.lua
 
 let g:python3_host_prog = "/usr/bin/python3"
 let g:python_host_prog = "/usr/bin/python2"
