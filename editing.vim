@@ -108,3 +108,6 @@ endfunction
 
 " function ResizeWindow()
 " endfunction
+
+" function CloseAndSafeBuffer()
+" endfunction

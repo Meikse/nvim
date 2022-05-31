@@ -15,11 +15,11 @@ Plug 'tpope/vim-commentary'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+" Plug 'hrsh7th/cmp-buffer'
+" Plug 'hrsh7th/cmp-path'
+" Plug 'hrsh7th/cmp-cmdline'
 
 " Plug 'puremourning/vimspector'
 " configure debugging mode in some way
@@ -27,7 +27,7 @@ Plug 'hrsh7th/nvim-cmp'
 call plug#end()
 
 source <sfile>:h/editing.vim
-source <sfile>:h/lsp_config.lua
+" source <sfile>:h/lsp_config.lua
 
 let g:python3_host_prog = "/usr/bin/python3"
 let g:python_host_prog = "/usr/bin/python2"
