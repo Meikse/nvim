@@ -18,6 +18,7 @@
 "
 "
 " add number in first box of the row
+
 function AddNumber()
      let num = line('$')
      for i in range(num+1)
@@ -105,9 +106,10 @@ function TimestampJournal(suffix = "", preffix = "")
     exec "startinsert"
 endfunction
 
+" way easier to implement like this
+function DateInsert()
+  $delete
+  read !date
+endfunction
 
 " function ResizeWindow()
-" endfunction
-
-" function CloseAndSafeBuffer()
-" endfunction
