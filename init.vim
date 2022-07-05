@@ -1,8 +1,10 @@
 call plug#begin('~/.config/nvim/plugins') "install git beforehand
 
 Plug 'rafi/awesome-vim-colorschemes'
+" Plug 'mhinz/vim-startify'
+Plug 'skywind3000/vim-auto-popmenu'
 Plug 'jiangmiao/auto-pairs' 
-Plug 'ervandew/supertab'
+Plug 'ervandew/supertab' 
 Plug 'vim-airline/vim-airline' 
 Plug 'tpope/vim-fugitive'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
@@ -18,17 +20,15 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
-" Plug 'hrsh7th/cmp-buffer'
-" Plug 'hrsh7th/cmp-path'
-" Plug 'hrsh7th/cmp-cmdline'
 
-" Plug 'puremourning/vimspector'
 " configure debugging mode in some way
+" Plug 'puremourning/vimspector'
 
 call plug#end()
 
 source <sfile>:h/editing.vim
-source <sfile>:h/lsp_config.lua
+" source <sfile>:h/session/startify.vim
+" source <sfile>:h/lsp_config.lua
 
 let g:python3_host_prog = "/usr/bin/python3"
 let g:python_host_prog = "/usr/bin/python2"
@@ -58,7 +58,7 @@ set mouse=a
 set tabstop=4     " tabs are at better location (maybe change in python)
 set expandtab     " don't use actual tab character (ctrl-v)
 set shiftwidth=4  " indenting is 4 spaces
-
+set cursorline cursorcolumn
 
 let g:SuperTabMappingForward = '<s-tab>'
 let g:SuperTabMappingBackward = '<tab>'
@@ -77,12 +77,12 @@ autocmd FileType help wincmd H
 
 noremap <c-p> :bp <cr>
 noremap <c-n> :bn <cr>
+noremap <c-o> :b# <cr>
 noremap <leader>n :noh<cr>
 noremap <leader><cr> :pwd<cr>
-
 noremap <leader><leader> :ls <cr>
 
-inoremap <M-,> <c-o>a
+inoremap <m-,> <c-o>a
 noremap <silent> x "_x
 xnoremap <silent> x "_x
 
@@ -143,6 +143,17 @@ let g:arduino_programmer =''
 
 " telescope
 noremap <leader>l :Telescope find_files hidden=false search_dirs=/home/meikse/<cr>
+
+" vim-auto-popmenu
+" enable this plugin for filetypes, '*' for all files.
+let g:apc_enable_ft = {'*':1}
+" source for dictionary, current or other loaded buffers, see ':help cpt'
+set cpt=.,k,w,b
+" don't select the first item.
+set completeopt=menu,menuone,noselect
+" suppress annoy messages.
+set shortmess+=c
+
 
 lua << END
 require('telescope').setup{
