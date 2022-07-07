@@ -1,9 +1,9 @@
 call plug#begin('~/.config/nvim/plugins') "install git beforehand
 
 Plug 'rafi/awesome-vim-colorschemes'
-" Plug 'mhinz/vim-startify'
 Plug 'skywind3000/vim-auto-popmenu'
 Plug 'jiangmiao/auto-pairs' 
+Plug 'voldikss/vim-translator'
 Plug 'ervandew/supertab' 
 Plug 'vim-airline/vim-airline' 
 Plug 'tpope/vim-fugitive'
@@ -143,6 +143,14 @@ let g:arduino_programmer =''
 
 " telescope
 noremap <leader>l :Telescope find_files hidden=false search_dirs=/home/meikse/<cr>
+
+"vim-translator
+let g:translator_target_lang = 'de'
+let g:translator_default_engines = ['google']
+noremap <leader>td :Translate --target_lang=de<cr>
+noremap <leader>te :Translate --target_lang=en<cr>
+noremap <silent> <leader>tw T<space>ve:TranslateR --target_lang=en<cr>
+noremap <silent> <leader>ts T<space>ve:TranslateR --target_lang=de<cr>
 
 " vim-auto-popmenu
 " enable this plugin for filetypes, '*' for all files.
