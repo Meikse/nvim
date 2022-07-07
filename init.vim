@@ -149,8 +149,9 @@ let g:translator_target_lang = 'de'
 let g:translator_default_engines = ['google']
 noremap <leader>td :Translate --target_lang=de<cr>
 noremap <leader>te :Translate --target_lang=en<cr>
-noremap <silent> <leader>tw T<space>ve:TranslateR --target_lang=en<cr>
-noremap <silent> <leader>ts T<space>ve:TranslateR --target_lang=de<cr>
+" does not work if space does not exist in line anymore TODO
+noremap <silent> <leader>tw viw:TranslateR --target_lang=en<cr>
+noremap <silent> <leader>ts viw:TranslateR --target_lang=de<cr>
 
 " vim-auto-popmenu
 " enable this plugin for filetypes, '*' for all files.
