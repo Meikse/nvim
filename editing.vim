@@ -114,3 +114,6 @@ endfunction
 
 " function ResizeWindow()
 " TODO
+
+" functoin DisplayTime()
+" TODO

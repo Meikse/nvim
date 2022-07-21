@@ -1,9 +1,11 @@
 call plug#begin('~/.config/nvim/plugins') "install git beforehand
 
-Plug 'rafi/awesome-vim-colorschemes'
+Plug 'meikse/gruvbox'
+" Plug 'rafi/awesome-vim-colorschemes'
 Plug 'skywind3000/vim-auto-popmenu'
 Plug 'jiangmiao/auto-pairs' 
 Plug 'voldikss/vim-translator'
+Plug 'dhruvasagar/vim-table-mode'
 Plug 'ervandew/supertab' 
 Plug 'vim-airline/vim-airline' 
 Plug 'tpope/vim-fugitive'
@@ -28,7 +30,7 @@ call plug#end()
 
 source <sfile>:h/editing.vim
 " source <sfile>:h/session/startify.vim
-" source <sfile>:h/lsp_config.lua
+source <sfile>:h/lsp_config.lua
 
 let g:python3_host_prog = "/usr/bin/python3"
 let g:python_host_prog = "/usr/bin/python2"
@@ -36,12 +38,16 @@ let g:python_host_prog = "/usr/bin/python2"
 autocmd Filetype python map <buffer> <F4> :w<cr>:exec '!python3' shellescape(@%, 1)<cr>
 autocmd Filetype python map <buffer> <F5> :w<cr>:JupyterRunFile <cr>:exec '!python3' shellescape(@%, 1)<cr>
 
+map <F2> :w %<cr>:!g++ %<cr>:!./a.out<cr>
+
 let g:asyncrun_open = 8
 let PYTHONUNBUFFERED=1
 autocmd FileType python map <buffer> <F3> :w<CR>:JupyterRunFile <CR>:AsyncRun python3 -u "%"<CR>
 
-colorscheme gruvbox 
-set background=dark
+" set background=dark
+" let g:gruvbox_contrast_dark="hard"
+" colorscheme gruvbox 
+colorscheme pablo 
 
 syntax enable 
 filetype plugin indent on
@@ -59,6 +65,7 @@ set tabstop=4     " tabs are at better location (maybe change in python)
 set expandtab     " don't use actual tab character (ctrl-v)
 set shiftwidth=4  " indenting is 4 spaces
 set cursorline cursorcolumn
+set ignorecase
 
 let g:SuperTabMappingForward = '<s-tab>'
 let g:SuperTabMappingBackward = '<tab>'
@@ -77,12 +84,13 @@ autocmd FileType help wincmd H
 
 noremap <c-p> :bp <cr>
 noremap <c-n> :bn <cr>
-noremap <c-o> :b# <cr>
+noremap <leader>o :b# <cr>
 noremap <leader>n :noh<cr>
 noremap <leader><cr> :pwd<cr>
 noremap <leader><leader> :ls <cr>
 
-inoremap <m-,> <c-o>a
+imap jk <c-o>a
+" inoremap <m-,> <c-o>a
 noremap <silent> x "_x
 xnoremap <silent> x "_x
 
@@ -144,6 +152,10 @@ let g:arduino_programmer =''
 " telescope
 noremap <leader>l :Telescope find_files hidden=false search_dirs=/home/meikse/<cr>
 
+
+" vim-table-mode'
+let g:table_mode_corner='|' "markdown compatible
+
 "vim-translator
 let g:translator_target_lang = 'de'
 let g:translator_default_engines = ['google']
@@ -162,6 +174,9 @@ set cpt=.,k,w,b
 set completeopt=menu,menuone,noselect
 " suppress annoy messages.
 set shortmess+=c
+
+" markdown-preview
+let g:mkdp_auto_close = 0
 
 
 lua << END
