@@ -44,10 +44,10 @@ let g:asyncrun_open = 8
 let PYTHONUNBUFFERED=1
 autocmd FileType python map <buffer> <F3> :w<CR>:JupyterRunFile <CR>:AsyncRun python3 -u "%"<CR>
 
-" set background=dark
-" let g:gruvbox_contrast_dark="hard"
-" colorscheme gruvbox 
-colorscheme pablo 
+set background=dark
+let g:gruvbox_contrast_dark="hard"
+colorscheme gruvbox 
+" colorscheme pablo 
 
 syntax enable 
 filetype plugin indent on
@@ -86,7 +86,8 @@ noremap <c-p> :bp <cr>
 noremap <c-n> :bn <cr>
 noremap <leader>o :b# <cr>
 noremap <leader>n :noh<cr>
-noremap <leader><cr> :pwd<cr>
+" noremap <leader><cr> :!ls <cr>
+noremap <leader><cr> :!ls <cr>
 noremap <leader><leader> :ls <cr>
 
 imap jk <c-o>a
@@ -178,6 +179,9 @@ set shortmess+=c
 " markdown-preview
 let g:mkdp_auto_close = 0
 
+" templates
+au BufNewFile *.cpp r ~/.config/nvim/skeleton/skeleton.cpp
+au BufNewFile *.py r ~/.config/nvim/skeleton/skeleton.py
 
 lua << END
 require('telescope').setup{
