@@ -3,6 +3,8 @@ call plug#begin('~/.config/nvim/plugins') "install git beforehand
 Plug 'meikse/gruvbox'
 " Plug 'rafi/awesome-vim-colorschemes'
 Plug 'skywind3000/vim-auto-popmenu'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-orgmode/orgmode'
 Plug 'jiangmiao/auto-pairs' 
 Plug 'voldikss/vim-translator'
 Plug 'dhruvasagar/vim-table-mode'
@@ -30,7 +32,7 @@ call plug#end()
 
 source <sfile>:h/editing.vim
 " source <sfile>:h/session/startify.vim
-source <sfile>:h/lsp_config.lua
+" source <sfile>:h/lsp_config.lua
 
 let g:python3_host_prog = "/usr/bin/python3"
 let g:python_host_prog = "/usr/bin/python2"
@@ -39,6 +41,8 @@ autocmd Filetype python map <buffer> <F4> :w<cr>:exec '!python3' shellescape(@%,
 autocmd Filetype python map <buffer> <F5> :w<cr>:JupyterRunFile <cr>:exec '!python3' shellescape(@%, 1)<cr>
 
 map <F2> :w %<cr>:!g++ %<cr>:!./a.out<cr>
+" autocmd FileType .cpp map <buffer> <F2> :w %<cr>:!g++ %<cr>:!./a.out<cr>
+" autocmd FileType .cpp map <buffer> <F3> :!source ~/Documents/Cpp/init.zsh
 
 let g:asyncrun_open = 8
 let PYTHONUNBUFFERED=1
@@ -73,7 +77,7 @@ let g:SuperTabMappingBackward = '<tab>'
 imap jj <esc>
 
 tnoremap <Esc> <c-\><c-n> " tnoremap <Esc><Esc> <c-\><c-n><c-w>h
-noremap <F8> :bro ol<cr>
+noremap <F8> :e ~/Master/Thesis/notes.md<cr>
 noremap <F9> :e $MYVIMRC<cr>
 " noremap <bs> :exec KickOut()<cr>:e .<cr>
 
@@ -197,3 +201,20 @@ defaults = {
   },
 }
 END
+
+
+" for ros
+if exists("b:current_syntax")
+  finish
+endif
+
+runtime syntax/xml.vim
+
+let s:current_syntax=b:current_syntax
+unlet b:current_syntax
+
+syntax include @YAML syntax/yaml.vim
+syntax region ymlSnipInline matchgroup=rosparamTag start="\m<.\{-}rosparam.\{-}>" end="\m</.\{-}rosparam.\{-}>" contains=@YAML containedin=xmlEntity
+hi link rosparamTag ModeMsg
+
+let b:current_syntax=s:current_syntax
