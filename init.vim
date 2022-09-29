@@ -1,3 +1,5 @@
+" indent only 2 not 4 
+" (c-r in shell do not trigger fzf backsearch)
 call plug#begin('~/.config/nvim/plugins') "install git beforehand
 
 Plug 'meikse/gruvbox'
@@ -23,7 +25,12 @@ Plug 'tpope/vim-commentary'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp'
+
+" Track the engine.
+Plug 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+
 
 " configure debugging mode in some way
 " Plug 'puremourning/vimspector'
@@ -56,7 +63,8 @@ colorscheme gruvbox
 syntax enable 
 filetype plugin indent on
 set clipboard+=unnamedplus
-let mapleader = ','
+" let mapleader = ','
+let mapleader = ' '
 set autochdir
 set encoding=UTF-8
 set number relativenumber
@@ -86,6 +94,7 @@ au FileType netrw nmap <buffer> l <cr>
 
 autocmd FileType help wincmd H
 
+noremap <leader>e $a;<esc>
 noremap <c-p> :bp <cr>
 noremap <c-n> :bn <cr>
 noremap <leader>o :b# <cr>
@@ -130,8 +139,8 @@ noremap <m-q> <c-w>c
 noremap <Tab> :b<space>
 
 " vim-commentary
-noremap <silent> <leader>cc :Commentary<cr>
-noremap <silent> <leader>cu :Commentary<cr>
+noremap <silent> <leader>c :Commentary<cr>
+" noremap <silent> <leader>cu :Commentary<cr>
 
 " vimtex
 let g:vimtex_quickfix_open_on_warning = 0
@@ -187,22 +196,6 @@ let g:mkdp_auto_close = 0
 au BufNewFile *.cpp r ~/.config/nvim/skeleton/skeleton.cpp
 au BufNewFile *.py r ~/.config/nvim/skeleton/skeleton.py
 
-lua << END
-require('telescope').setup{
-defaults = {
-    preview = {
-        treesitter = false,
-        }
-    },
-  pickers = {
-    find_files = {
-      theme = "dropdown",
-    }
-  },
-}
-END
-
-
 " for ros
 if exists("b:current_syntax")
   finish
@@ -218,3 +211,49 @@ syntax region ymlSnipInline matchgroup=rosparamTag start="\m<.\{-}rosparam.\{-}>
 hi link rosparamTag ModeMsg
 
 let b:current_syntax=s:current_syntax
+
+lua << END
+require('telescope').setup{
+defaults = {
+    preview = {
+        treesitter = false,
+        }
+    },
+  pickers = {
+    find_files = {
+      theme = "dropdown",
+    }
+  },
+}
+
+require'nvim-treesitter.configs'.setup {
+  -- A list of parser names, or "all"
+  ensure_installed = { "cpp", "c", "python" },
+
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  -- Automatically install missing parsers when entering buffer
+  auto_install = true,
+
+  -- List of parsers to ignore installing (for "all")
+  -- ignore_install = {""},
+
+  highlight = {
+    -- `false` will disable the whole extension
+    enable = true,
+
+    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
+    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
+    -- the name of the parser)
+    -- list of language that will be disabled
+    -- disable = {""},
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+END
