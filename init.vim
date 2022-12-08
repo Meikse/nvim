@@ -5,7 +5,7 @@ call plug#begin('~/.config/nvim/plugins') "install git beforehand
 Plug 'meikse/gruvbox'
 " Plug 'rafi/awesome-vim-colorschemes'
 Plug 'skywind3000/vim-auto-popmenu'
-Plug 'nvim-treesitter/nvim-treesitter'
+" Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-orgmode/orgmode'
 Plug 'jiangmiao/auto-pairs' 
 Plug 'voldikss/vim-translator'
@@ -53,7 +53,8 @@ map <F2> :w %<cr>:!g++ %<cr>:!./a.out<cr>
 
 let g:asyncrun_open = 8
 let PYTHONUNBUFFERED=1
-autocmd FileType python map <buffer> <F3> :w<CR>:JupyterRunFile <CR>:AsyncRun python3 -u "%"<CR>
+" autocmd FileType python map <buffer> <F3> :w<CR>:JupyterRunFile <CR>:AsyncRun python3 -u "%"<CR>
+map <F3> :w<CR>:!xacro %<CR>
 
 set background=dark
 let g:gruvbox_contrast_dark="hard"
@@ -85,7 +86,6 @@ let g:SuperTabMappingBackward = '<tab>'
 imap jj <esc>
 
 tnoremap <Esc> <c-\><c-n> " tnoremap <Esc><Esc> <c-\><c-n><c-w>h
-noremap <F8> :e ~/Master/Thesis/notes.md<cr>
 noremap <F9> :e $MYVIMRC<cr>
 " noremap <bs> :exec KickOut()<cr>:e .<cr>
 
@@ -144,6 +144,9 @@ noremap <silent> <leader>c :Commentary<cr>
 
 " vimtex
 let g:vimtex_quickfix_open_on_warning = 0
+noremap <leader>lc :VimtexCompile<cr>
+noremap <leader>lt :VimtexTocToggle<cr>
+noremap <leader>ls :VimtexStatus<cr>
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
@@ -158,13 +161,22 @@ let g:airline_powerline_fonts = 0
 " nnoremap <silent> <leader>h :Files ~<cr>
 " nnoremap <silent> <leader>d :Files /<cr>
 
+" Git
+noremap <silent> <leader>gs :Git status<cr>
+noremap <silent> <leader>gt :Git tree<cr>
+noremap <silent> <leader>ga :Git add %<cr>
+noremap <silent> <leader>gc :Git commit %<cr>
+noremap <leader>go :Git checkout 
+noremap <leader>gm :Git merge 
+noremap <leader>gb :Git branch 
+
 " arduino
 autocmd Filetype arduino noremap <leader>v :w<cr> :ArduinoVerify<CR>
 autocmd Filetype arduino noremap <leader>u :w<cr> :ArduinoUpload<CR>
 let g:arduino_programmer ='' 
 
 " telescope
-noremap <leader>l :Telescope find_files hidden=false search_dirs=/home/meikse/<cr>
+" noremap <leader>ö :Telescope find_files hidden=false search_dirs=/home/meikse/<cr>
 
 
 " vim-table-mode'
@@ -257,3 +269,9 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 END
+
+
+
+" vim.cmd 'colorscheme blue'
+" -- https://gist.github.com/blacktrub/2f029c4b76bf823a5eafff1dcf9b0b28
+" -- https://github.com/nanotee/nvim-lua-guide
