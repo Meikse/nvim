@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["auto-pairs"] = {
+    loaded = true,
+    path = "/home/meikse/.local/share/nvim/site/pack/packer/start/auto-pairs",
+    url = "https://github.com/jiangmiao/auto-pairs"
+  },
   gruvbox = {
     loaded = true,
     path = "/home/meikse/.local/share/nvim/site/pack/packer/start/gruvbox",
@@ -84,10 +89,20 @@ _G.packer_plugins = {
     path = "/home/meikse/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
+  ["pantran.nvim"] = {
+    loaded = true,
+    path = "/home/meikse/.local/share/nvim/site/pack/packer/start/pantran.nvim",
+    url = "https://github.com/potamides/pantran.nvim"
+  },
   ["vim-commentary"] = {
     loaded = true,
     path = "/home/meikse/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
+  },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/home/meikse/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
   }
 }
 
