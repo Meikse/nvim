@@ -1,2 +1,2 @@
-print("hello from the INIT.LUA")
-require("meikse")
+require("meikse") -- own config + packer
+-- /after will be executed afterwards 

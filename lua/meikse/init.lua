@@ -1,2 +1,3 @@
-require("meikse.set")
-print("hello from the LUA folder")
+require("meikse.settings")
+require("meikse.mappings")
+require("meikse.packer")
