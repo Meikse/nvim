@@ -1,4 +1,4 @@
 # nvim configuration
 
-version: 0.8.0-dev
+version: 0.9.0-dev
 os: pop-os 22.04
