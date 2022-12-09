@@ -26,13 +26,12 @@ vim.api.nvim_create_autocmd(
 	command = "nmap <buffer> h -"
 })
 vim.api.nvim_create_autocmd(
-     "Filetype",
-     {
-	pattern = "netrw",
+     "Filetype", { pattern = "netrw",
 	command = "nmap <buffer> l <cr>"
 })
 
--- maps skeleton to new file
+-- group skeletons autocmds
+-- autogroup them -- TODO
 vim.api.nvim_create_autocmd(
     "BufNewFile",
     {
@@ -54,9 +53,6 @@ vim.api.nvim_create_autocmd(
     command = "0r $XDG_CONFIG_HOME/nvim/skeleton/skeleton.tex"
     }
 )
-
--- group skeletons autocmds
--- TODO
 
 -- executes python interpreter
 -- TODO
