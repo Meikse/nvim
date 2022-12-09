@@ -12,6 +12,7 @@ return require('packer').startup(function(use)
   use 'jiangmiao/auto-pairs' 
   use 'potamides/pantran.nvim'
   use 'tpope/vim-fugitive'
+  use 'lervag/vimtex'
 
 -- use 'voldikss/vim-translator'
 -- use 'dhruvasagar/vim-table-mode'
