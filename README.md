@@ -24,8 +24,9 @@ containes a comprehensive list of spell checks for the aimed languages
 
 ## TODO
 
-- disable commenting next line if appending line is a comment (Commentary)
-- enable: e.g. `3<leader>c` to comment out  3 lines 
+- disable commenting next line if appending line is a comment (seems to be pretty heavy problem. set formatoptions always changes, no matter if init in /after or doing autocmd..
+https://www.reddit.com/r/neovim/comments/pgtdi1/trouble_with_setting_formatoptions_in_lua/
+
 - supertabbing
 - instant completion
 
