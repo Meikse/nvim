@@ -3,25 +3,6 @@
 version: 0.9.0-dev
 os: pop-os 22.04
 
-
-
-├── after
-│   └── plugin
-│       └── CONFIG
-├── init.lua
-├── lua
-│   └── meikse
-│       ├── init.lua
-│       ├── packer.lua
-│       └── set.lua
-├── plugin
-│   └── packer_compiled.lua
-├── README.md
-└── spell
-    ├── de.utf-8.add
-    └── de.utf-8.add.spl
-
-
 1. init.lua:
 initializes all files that will be 
 
@@ -34,6 +15,22 @@ those need to be "required" in the main init.lua file
 containes all downloaded plugins config that will be loaded after the init.lua file
 tweak and twist raw plugins
 (subfolder shall be called plugin, see :h rtp)
+- you can use /ftplugin to define specific things to files belonging to a certain filetype.
+(i guess it works by parsing the name of that plugin, like: python.lua or lua.lua, ...)
+https://www.reddit.com/r/neovim/comments/x3zp6t/usage_of_afterftplugin_directory_for/
 
 4. /spell :
 containes a comprehensive list of spell checks for the aimed languages
+
+## TODO
+
+- disable commenting next line if appending line is a comment (Commentary)
+- enable: e.g. `3<leader>c` to comment out  3 lines 
+- supertabbing
+- instant completion
+
+- always enable Treesitter
+
+- config lsp
+
+- (install telescope)
