@@ -17,7 +17,8 @@ return require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
   use 'hrsh7th/nvim-cmp'
-  -- use 'nvim-treesitter/nvim-treesitter'
+
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
 -- use 'voldikss/vim-translator'
 -- use 'dhruvasagar/vim-table-mode'
