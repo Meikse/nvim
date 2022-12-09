@@ -14,12 +14,16 @@ return require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
   use 'lervag/vimtex'
 
+  use 'neovim/nvim-lspconfig'
+  use 'williamboman/nvim-lsp-installer'
+  use 'hrsh7th/nvim-cmp'
+  -- use 'nvim-treesitter/nvim-treesitter'
+
 -- use 'voldikss/vim-translator'
 -- use 'dhruvasagar/vim-table-mode'
 -- use 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 -- Plug 'ervandew/supertab' 
--- Plug 'lervag/vimtex'
 -- Plug 'jupyter-vim/jupyter-vim'
 -- Plug 'stevearc/vim-arduino'
 -- Plug 'nvim-telescope/telescope.nvim'
