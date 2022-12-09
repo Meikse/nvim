@@ -33,6 +33,29 @@ vim.api.nvim_create_autocmd(
 })
 
 -- maps skeleton to new file
+vim.api.nvim_create_autocmd(
+    "BufNewFile",
+    {
+    pattern = "*.py", 
+    command = "0r $XDG_CONFIG_HOME/nvim/skeleton/skeleton.py" 
+    }
+)
+vim.api.nvim_create_autocmd(
+    "BufNewFile",
+    {
+    pattern = "*.cpp", 
+    command = "0r $XDG_CONFIG_HOME/nvim/skeleton/skeleton.cpp" 
+    }
+)
+vim.api.nvim_create_autocmd(
+    "BufNewFile",
+    {
+    pattern = "*.tex", 
+    command = "0r $XDG_CONFIG_HOME/nvim/skeleton/skeleton.tex"
+    }
+)
+
+-- group skeletons autocmds
 -- TODO
 
 -- executes python interpreter
