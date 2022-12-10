@@ -8,13 +8,14 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use 'meikse/gruvbox'
+  use 'nvim-lualine/lualine.nvim'
+
   use 'tpope/vim-commentary'
   use 'ervandew/supertab' 
   use 'jiangmiao/auto-pairs' 
-  use 'tpope/vim-fugitive'
 
   use 'potamides/pantran.nvim'
-
+  use 'tpope/vim-fugitive'
   use 'lervag/vimtex'
 
   use 'neovim/nvim-lspconfig'
