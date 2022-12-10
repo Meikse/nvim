@@ -30,7 +30,7 @@ https://www.reddit.com/r/neovim/comments/pgtdi1/trouble_with_setting_formatoptio
 - supertabbing
 - instant completion
 
-- always enable Treesitter
+- lualine
 
 - config lsp
 
