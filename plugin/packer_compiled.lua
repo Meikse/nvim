@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/home/meikse/.local/share/nvim/site/pack/packer/start/pantran.nvim",
     url = "https://github.com/potamides/pantran.nvim"
   },
+  supertab = {
+    loaded = true,
+    path = "/home/meikse/.local/share/nvim/site/pack/packer/start/supertab",
+    url = "https://github.com/ervandew/supertab"
+  },
   ["vim-commentary"] = {
     loaded = true,
     path = "/home/meikse/.local/share/nvim/site/pack/packer/start/vim-commentary",

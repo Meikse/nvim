@@ -9,9 +9,12 @@ return require('packer').startup(function(use)
 
   use 'meikse/gruvbox'
   use 'tpope/vim-commentary'
+  use 'ervandew/supertab' 
   use 'jiangmiao/auto-pairs' 
-  use 'potamides/pantran.nvim'
   use 'tpope/vim-fugitive'
+
+  use 'potamides/pantran.nvim'
+
   use 'lervag/vimtex'
 
   use 'neovim/nvim-lspconfig'
