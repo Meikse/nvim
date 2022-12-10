@@ -20,3 +20,9 @@ vim.opt.tabstop = 2
 -- vim.opt.softtabstop= 4 -- typescript?
 vim.opt.shiftwidth = 2
 
+-- completion
+vim.opt.completeopt = {"menu","menuone"}
+
+-- WHY DO THESE NOT WORK ?? :verbose set <option>
+vim.cmd [[set formatoptions-=cro)]]
+-- vim.opt.formatoptions = "jql"
