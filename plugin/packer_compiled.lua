@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/meikse/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/meikse/gruvbox"
   },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/meikse/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/meikse/.local/share/nvim/site/pack/packer/start/nvim-cmp",

@@ -11,7 +11,7 @@ return require('packer').startup(function(use)
   use 'nvim-lualine/lualine.nvim'
 
   use 'tpope/vim-commentary'
-  use 'ervandew/supertab' 
+  use 'ervandew/supertab'
   use 'jiangmiao/auto-pairs' 
 
   use 'potamides/pantran.nvim'

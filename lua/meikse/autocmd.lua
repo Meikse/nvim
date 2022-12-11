@@ -11,10 +11,10 @@ vim.api.nvim_create_autocmd(
     { "BufRead", "BufNewFile" },
     { pattern = 
     { 
-	    -- "*.txt", 
+	    "*.txt", 
 	    "*.md", 
 	    "*.tex" 
-    }, command = "setlocal spell" 
+    }, command = "setlocal spell | set complete+=.,k,w,b" 
     }
 )
 
@@ -54,9 +54,3 @@ vim.api.nvim_create_autocmd(
 --     command = "0r $XDG_CONFIG_HOME/nvim/skeleton/latex/article.tex"
 --     }
 -- )
-
--- executes python interpreter
--- TODO
-
--- executes cpp compiler
--- TODO
