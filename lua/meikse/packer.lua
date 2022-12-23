@@ -12,7 +12,8 @@ return require('packer').startup(function(use)
 
   use 'tpope/vim-commentary'
   use 'ervandew/supertab'
-  use 'jiangmiao/auto-pairs' 
+  -- use 'jiangmiao/auto-pairs' 
+  use 'm4xshen/autoclose.nvim' 
 
   use 'potamides/pantran.nvim'
   use 'tpope/vim-fugitive'
