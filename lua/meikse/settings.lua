@@ -12,7 +12,10 @@ vim.opt.relativenumber = true
 vim.opt.autochdir = true
 
 -- indenting
-vim.opt.smartindent = true
+-- vim.opt.autoindent = true
+-- vim.opt.smarttab = true
+-- vim.opt.smartindent = true
+vim.cmd [[filetype indent off]]
 
 -- tabbing
 vim.opt.expandtab = true
