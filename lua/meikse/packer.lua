@@ -14,6 +14,8 @@ return require('packer').startup(function(use)
   use 'ervandew/supertab'
   -- use 'jiangmiao/auto-pairs' 
   use 'm4xshen/autoclose.nvim' 
+  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+  -- use 'iamcco/markdown-preview.nvim'
 
   use 'potamides/pantran.nvim'
   use 'tpope/vim-fugitive'
@@ -29,9 +31,9 @@ return require('packer').startup(function(use)
 -- use 'dhruvasagar/vim-table-mode'
 -- use 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
--- Plug 'ervandew/supertab' 
--- Plug 'jupyter-vim/jupyter-vim'
--- Plug 'stevearc/vim-arduino'
--- Plug 'nvim-telescope/telescope.nvim'
+-- use 'ervandew/supertab' 
+-- use 'jupyter-vim/jupyter-vim'
+-- use 'stevearc/vim-arduino'
+-- use 'nvim-telescope/telescope.nvim'
 
   end)
