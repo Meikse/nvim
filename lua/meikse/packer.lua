@@ -14,12 +14,16 @@ return require('packer').startup(function(use)
   use 'ervandew/supertab'
   -- use 'jiangmiao/auto-pairs' 
   use 'm4xshen/autoclose.nvim' 
-  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
-  -- use 'iamcco/markdown-preview.nvim'
+  use({ "iamcco/markdown-preview.nvim",
+      run = "cd app && npm install",
+      setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+      ft = { "markdown" }, })
+
 
   use 'potamides/pantran.nvim'
   use 'tpope/vim-fugitive'
   use 'lervag/vimtex'
+  use 'jupyter-vim/jupyter-vim'
 
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
