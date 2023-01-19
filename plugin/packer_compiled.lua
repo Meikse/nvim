@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/meikse/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/meikse/gruvbox"
   },
+  ["jupyter-vim"] = {
+    loaded = true,
+    path = "/home/meikse/.local/share/nvim/site/pack/packer/start/jupyter-vim",
+    url = "https://github.com/jupyter-vim/jupyter-vim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/meikse/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -121,11 +126,6 @@ _G.packer_plugins = {
     path = "/home/meikse/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
-  ["pantran.nvim"] = {
-    loaded = true,
-    path = "/home/meikse/.local/share/nvim/site/pack/packer/start/pantran.nvim",
-    url = "https://github.com/potamides/pantran.nvim"
-  },
   supertab = {
     loaded = true,
     path = "/home/meikse/.local/share/nvim/site/pack/packer/start/supertab",
@@ -140,6 +140,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/meikse/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-translator"] = {
+    loaded = true,
+    path = "/home/meikse/.local/share/nvim/site/pack/packer/start/vim-translator",
+    url = "https://github.com/voldikss/vim-translator"
   },
   vimtex = {
     loaded = true,

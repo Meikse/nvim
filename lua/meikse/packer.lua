@@ -20,7 +20,9 @@ return require('packer').startup(function(use)
       ft = { "markdown" }, })
 
 
-  use 'potamides/pantran.nvim'
+  -- use 'potamides/pantran.nvim' --errors while config TODO
+  use 'voldikss/vim-translator'   --slow but plug-and-play (replace)
+
   use 'tpope/vim-fugitive'
   use 'lervag/vimtex'
   use 'jupyter-vim/jupyter-vim'
