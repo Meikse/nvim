@@ -36,8 +36,9 @@ return require('packer').startup(function(use)
   use "rafamadriz/friendly-snippets"
   use 'saadparwaiz1/cmp_luasnip'
 
-  use 'f3fora/cmp-spell'
-  -- use 'nvim-lua/plenary.nvim'
+  use 'nvim-lua/plenary.nvim'
+  use 'f3fora/cmp-spell'          -- not used yet
+  use 'uga-rosa/cmp-dictionary'
   -- use 'jose-elias-alvarez/null-ls.nvim'
 
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
