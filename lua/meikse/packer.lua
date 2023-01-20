@@ -11,8 +11,7 @@ return require('packer').startup(function(use)
   use 'nvim-lualine/lualine.nvim'
 
   use 'tpope/vim-commentary'
-  use 'ervandew/supertab'
-  -- use 'jiangmiao/auto-pairs' 
+
   use 'm4xshen/autoclose.nvim' 
   use({ "iamcco/markdown-preview.nvim",
       run = "cd app && npm install",
@@ -29,13 +28,19 @@ return require('packer').startup(function(use)
 
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
+  use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/nvim-cmp'
+
+  use 'L3MON4D3/LuaSnip'
+  use "rafamadriz/friendly-snippets"
+  use 'saadparwaiz1/cmp_luasnip'
+
+  -- use 'hrsh7th/cmp-vsnip'
+  -- use 'hrsh7th/vim-vsnip'
 
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
--- use 'voldikss/vim-translator'
 -- use 'dhruvasagar/vim-table-mode'
--- use 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 -- use 'ervandew/supertab' 
 -- use 'jupyter-vim/jupyter-vim'
