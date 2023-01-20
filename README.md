@@ -1,7 +1,8 @@
 # nvim configuration
 
-version: 0.9.0-dev
-os: pop-os 22.04
+| version     | OS             |
+|-------------|----------------|
+| `0.9.0-dev` | `pop-os 22.04` |
 
 do not forget to set path to nvim config and make it default editor:
 ```
