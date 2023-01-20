@@ -13,6 +13,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-commentary'
 
   use 'm4xshen/autoclose.nvim' 
+  use 'dhruvasagar/vim-table-mode'
   use({ "iamcco/markdown-preview.nvim",
       run = "cd app && npm install",
       setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
@@ -35,16 +36,13 @@ return require('packer').startup(function(use)
   use "rafamadriz/friendly-snippets"
   use 'saadparwaiz1/cmp_luasnip'
 
-  -- use 'hrsh7th/cmp-vsnip'
-  -- use 'hrsh7th/vim-vsnip'
+  use 'f3fora/cmp-spell'
+  -- use 'nvim-lua/plenary.nvim'
+  -- use 'jose-elias-alvarez/null-ls.nvim'
 
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
--- use 'dhruvasagar/vim-table-mode'
-
--- use 'ervandew/supertab' 
--- use 'jupyter-vim/jupyter-vim'
--- use 'stevearc/vim-arduino'
+  -- use 'stevearc/vim-arduino'
 -- use 'nvim-telescope/telescope.nvim'
 
   end)
