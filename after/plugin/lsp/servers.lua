@@ -47,8 +47,15 @@ require('lspconfig')['pyright'].setup{
     capabilities = capabilities,
 }
 
--- TODO
+require('lspconfig')['ltex'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+    filetypes = {"tex","bib"},
+    capabilities = capabilities,
+}
+
 -- require('lspconfig')['clangd'].setup{
 --     on_attach = on_attach,
 --     flags = lsp_flags,
+--     capabilities = capabilities,
 -- }

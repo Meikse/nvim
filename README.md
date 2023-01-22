@@ -33,6 +33,10 @@ Note:
 spell check: is good to correct **while/after** you write a word 
 Keyword check: lists all words matching with the word **before** using it.
 
+- if you use ls "ltex" than use 
+\usepackage[<language>]{babel}
+thus the parser identifies directly which language is shall be evaluated.
+
 ## TODO
 
 - disable commenting next line if appending line is a comment (seems to be pretty heavy problem. set formatoptions always changes, no matter if init in /after or doing autocmd..
