@@ -46,11 +46,11 @@ vim.api.nvim_create_autocmd(
     command = "0r $XDG_CONFIG_HOME/nvim/skeleton/skeleton.cpp" 
     }
 )
--- use purpose specifc latex skeleton TODO
--- vim.api.nvim_create_autocmd(
---     "BufNewFile",
---     {
---     pattern = "*.tex", 
---     command = "0r $XDG_CONFIG_HOME/nvim/skeleton/latex/article.tex"
---     }
--- )
+
+vim.api.nvim_create_autocmd(
+    "BufNewFile",
+    {
+    pattern = "*.tex", 
+    command = "0r $XDG_CONFIG_HOME/nvim/skeleton/skeleton.tex"
+    }
+)
