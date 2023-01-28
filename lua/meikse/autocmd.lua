@@ -46,11 +46,21 @@ vim.api.nvim_create_autocmd(
     command = "0r $XDG_CONFIG_HOME/nvim/skeleton/skeleton.cpp" 
     }
 )
-
 vim.api.nvim_create_autocmd(
     "BufNewFile",
     {
     pattern = "*.tex", 
     command = "0r $XDG_CONFIG_HOME/nvim/skeleton/skeleton.tex"
+    }
+)
+-- .md highlighting for calcurse notes
+vim.api.nvim_create_autocmd(
+    {"BufNewFile","BufRead"},
+    { pattern = 
+      { 
+	      "/tmp/calcurse*",
+	      "~/.local/share/calcurse/notes/"
+      },
+      command = "set filetype=markdown" 
     }
 )
