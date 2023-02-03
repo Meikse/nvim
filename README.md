@@ -9,6 +9,32 @@ Set path to neovim configurations and make it default editor:
 export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR='nvim'
 ```
+## installation
+
+#### debian
+
+if you are confident enough embed the [unstable](https://launchpad.net/~neovim-ppa/+archive/ubuntu/unstable) repository.
+```sh
+sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo apt update
+```
+and install neovim
+```sh
+# install directly for old stable version
+sudo apt install neovim
+```
+in addition install python support
+```sh
+sudo apt install python-neovim
+sudo apt install python3-neovim
+```
+Do `:checkhealth` and see if any clipboard tool is already supported by default.
+If not, [xclip](https://github.com/astrand/xclip) provides handy functionalities for clipping
+```sh
+sudo apt install xclip
+```
+(neovim should detect it automatically)
+
 ## tree :deciduous_tree:
  * [after](#after)
    * [ftplugin](#ftplugin)
