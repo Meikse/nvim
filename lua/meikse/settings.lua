@@ -17,6 +17,9 @@ vim.opt.autochdir = true
 -- vim.opt.smartindent = true
 vim.cmd [[filetype indent off]]
 
+-- search True
+vim.cmd [[set ignorecase]]
+
 -- tabbing
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
@@ -27,5 +30,5 @@ vim.opt.shiftwidth = 2
 vim.opt.completeopt = {"menu","menuone"}
 
 -- WHY DO THESE NOT WORK ?? :verbose set <option>
-vim.cmd [[set formatoptions-=cro)]]
+vim.cmd [[set formatoptions-=cro)]] -- )?
 -- vim.opt.formatoptions = "jql"
