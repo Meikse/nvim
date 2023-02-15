@@ -44,10 +44,11 @@ cmp.setup({
     end, { "i", "s" }),
     },
 
-  sources = cmp.config.sources({
+  -- sources = cmp.config.sources({
+  sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' }, 
-		{ name = "dictionary",
+		{ name = 'dictionary',
 			keyword_length = 2,
 		},
     -- { name = 'spell',
@@ -60,5 +61,5 @@ cmp.setup({
     -- },
   }, {
     { name = 'buffer' },
-  }),
+  },
 })
