@@ -29,7 +29,7 @@ vim.keymap.set('n','<c-q>',':bd<cr>')
 vim.keymap.set('n','<s-q>',':b#|bd#<cr>')
 
 -- buffer resizing
-vim.keymap.set('n','<leader>f',':vert res<cr>:res<cr>')
+vim.keymap.set('n','<leader>e',':vert res<cr>:res<cr>')
 vim.keymap.set('n','<leader>r','<c-w>=')
 vim.keymap.set('n','<m-l>','<c-w><')
 vim.keymap.set('n','<m-h>','<c-w>>')
