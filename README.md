@@ -156,7 +156,3 @@ Keyword check: lists all words matching with the word **before** using it.
 https://www.reddit.com/r/neovim/comments/pgtdi1/trouble_with_setting_formatoptions_in_lua/
 
 - config `clangd` for `.cpp` files
-
-- (install telescope)
-
-
