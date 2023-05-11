@@ -44,7 +44,7 @@ return require('packer').startup(function(use)
 
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
-  -- use 'stevearc/vim-arduino'
+  use 'stevearc/vim-arduino'
   use 'nvim-telescope/telescope.nvim'
 
   end)
