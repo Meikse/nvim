@@ -25,7 +25,7 @@ vim.keymap.set('n','<leader>o','<cmd>b#<cr>', { silent = true })
 vim.keymap.set('n','<Tab>',':b<space>')
 
 -- buffer closing
-vim.keymap.set('n','<c-q>',':bd<cr>')
+vim.keymap.set('n','<m-q>',':bd<cr>')
 vim.keymap.set('n','<s-q>',':b#|bd#<cr>')
 
 -- buffer resizing
