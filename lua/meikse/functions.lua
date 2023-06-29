@@ -14,3 +14,8 @@ function InsertDate()
   local date = os.date("%d.%m.%y")
   InsertText(date)
 end
+
+function InsertTimeStamp()
+  local date = os.date("%d.%m.%y %H:%M")
+  InsertText(date)
+end
