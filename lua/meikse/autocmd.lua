@@ -64,3 +64,12 @@ vim.api.nvim_create_autocmd(
       command = "set filetype=markdown" 
     }
 )
+
+-- for Copilot, thus it generates semantic text
+-- TODO, always assigns txt format, but should only if no file is invoked
+-- vim.api.nvim_create_autocmd(
+--     "VimEnter",
+--      {
+-- 	pattern = "",
+-- 	command = "set filetype=txt"
+-- })
