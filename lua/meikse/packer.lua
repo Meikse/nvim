@@ -27,6 +27,8 @@ return require('packer').startup(function(use)
   use 'lervag/vimtex'
   use 'jupyter-vim/jupyter-vim'
 
+  use { 'chomosuke/term-edit.nvim', tag = 'v1.*' }
+
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
   use 'hrsh7th/cmp-nvim-lsp'
