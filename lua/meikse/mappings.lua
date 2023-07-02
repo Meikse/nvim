@@ -31,16 +31,16 @@ vim.keymap.set('n','<s-q>',':b#|bd#<cr>')
 -- buffer resizing
 vim.keymap.set('n','<leader>e',':vert res<cr>:res<cr>')
 vim.keymap.set('n','<leader>r','<c-w>=')
-vim.keymap.set('n','<m-l>','<c-w><')
-vim.keymap.set('n','<m-h>','<c-w>>')
-vim.keymap.set('n','<m-j>','<c-w>+')
-vim.keymap.set('n','<m-k>','<c-w>-')
+-- vim.keymap.set('n','<m-l>','<c-w><')
+-- vim.keymap.set('n','<m-h>','<c-w>>')
+-- vim.keymap.set('n','<m-j>','<c-w>+')
+-- vim.keymap.set('n','<m-k>','<c-w>-')
 
 -- buffer jumping 
--- vim.keymap.set('n','<c-l>','<c-w>l')
--- vim.keymap.set('n','<c-h>','<c-w>h')
--- vim.keymap.set('n','<c-j>','<c-w>j')
--- vim.keymap.set('n','<c-k>','<c-w>k')
+vim.keymap.set('n','<m-l>','<c-w>l')
+vim.keymap.set('n','<m-h>','<c-w>h')
+vim.keymap.set('n','<m-j>','<c-w>j')
+vim.keymap.set('n','<m-k>','<c-w>k')
 
 -- hardcore mode
 vim.keymap.set({'n','v','i'},'<up>','<NOP>', { silent = true })

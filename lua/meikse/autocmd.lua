@@ -12,8 +12,7 @@ vim.api.nvim_create_autocmd(
     { pattern = 
     { 
 	    "*.txt", 
-	    "*.md", 
-	    "*.tex" 
+	    "*.md", "*.tex" 
     }, command = "setlocal spell | set complete+=.,k,w,b" 
     }
 )
@@ -64,6 +63,18 @@ vim.api.nvim_create_autocmd(
       command = "set filetype=markdown" 
     }
 )
+
+-- for fast navigation out of terminal
+-- see ./mappings.lua for normal navigation with Alt
+vim.cmd([[
+augroup TerminalMappings
+  autocmd!
+  autocmd TermOpen * tnoremap <silent> <m-h> <C-\><C-N><C-w>h
+  autocmd TermOpen * tnoremap <silent> <m-j> <C-\><C-N><C-w>j
+  autocmd TermOpen * tnoremap <silent> <m-k> <C-\><C-N><C-w>k
+  autocmd TermOpen * tnoremap <silent> <m-l> <C-\><C-N><C-w>l
+augroup END
+]])
 
 -- for Copilot, thus it generates semantic text
 -- TODO, always assigns txt format, but should only if no file is invoked
