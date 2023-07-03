@@ -76,6 +76,14 @@ augroup TerminalMappings
 augroup END
 ]])
 
+
+-- insertmode when entering term, normalmode when leaving, lua -> TODO
+vim.cmd[[autocmd BufWinEnter,WinEnter term://* startinsert]]
+vim.cmd[[autocmd BufLeave term://* stopinsert]]
+
+-- custom filetypes
+vim.cmd[[au BufRead,BufNewFile *.guitare set filetype=guitare]]
+
 -- for Copilot, thus it generates semantic text
 -- TODO, always assigns txt format, but should only if no file is invoked
 -- vim.api.nvim_create_autocmd(

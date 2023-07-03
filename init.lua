@@ -37,9 +37,5 @@ end
 -- to close netrw after selecting a file
 vim.cmd[[let g:netrw_fastbrowse = 0]]
 
--- insertmode when entering term, normalmode when leaving
-vim.cmd[[autocmd BufWinEnter,WinEnter term://* startinsert]]
-vim.cmd[[autocmd BufLeave term://* stopinsert]]
-
 -- exit term insertmode
 vim.keymap.set('t', '<esc>','<C-\\><C-n>')
