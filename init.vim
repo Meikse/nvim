@@ -15,6 +15,7 @@ set cursorline cursorcolumn
 set ignorecase
 set spell
 set complete+=.,k,w,b
+language en_US
 
 " lazy shortcuts
 imap jk <c-o>a
