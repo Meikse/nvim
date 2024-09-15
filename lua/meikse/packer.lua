@@ -10,6 +10,8 @@ return require('packer').startup(function(use)
   use 'meikse/gruvbox'
   use 'nvim-lualine/lualine.nvim'
 
+  use 'christoomey/vim-tmux-navigator'
+
   use 'tpope/vim-commentary'
 
   use 'm4xshen/autoclose.nvim' 
@@ -33,7 +35,7 @@ return require('packer').startup(function(use)
   use 'williamboman/nvim-lsp-installer'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/nvim-cmp'
-  use 'github/copilot.vim'
+  -- use 'github/copilot.vim'
 
   use 'L3MON4D3/LuaSnip'
   use "rafamadriz/friendly-snippets"
