@@ -34,6 +34,7 @@ noremap <space>o :b#<cr>
 
 if has("eval")   "indicates: not in vim.tiny 
 
+    set guicursor=n-v-c-i:block-Cursor
     colo torte
     syntax on
     set omnifunc=syntaxcomplete#Complete "build in completion for easy setup
@@ -59,7 +60,7 @@ if has("eval")   "indicates: not in vim.tiny
     if has("nvim")   "indicates: not in vim.tiny 
         call plug#begin('~/.config/nvim/plugged')
         Plug 'voldikss/vim-translator'
-        Plug 'm4xshen/autoclose.nvim' 
+        Plug 'jiangmiao/auto-pairs' 
         Plug 'tpope/vim-commentary'
         Plug 'tpope/vim-fugitive'
         Plug 'christoomey/vim-tmux-navigator'
@@ -74,7 +75,7 @@ if has("eval")   "indicates: not in vim.tiny
         noremap <leader>td :Translate --target_lang=de<cr>
         noremap <leader>te :Translate --target_lang=en<cr>
         noremap <silent> <leader>tw viw:TranslateR --target_lang=en<cr>
-        noremap <silent> <leader>ts viw:TranslateR --target_lang=de<cr
+        noremap <silent> <leader>ts viw:TranslateR --target_lang=de<cr>
 
         " vim-fugitive
         noremap <silent> <leader>gs <cmd>Git status<cr>
